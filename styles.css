@@ -1,19 +1,19 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    margin: 40px;
+    background-color: #1a1a1a; /* Dark background for the room */
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-h1 {
-    color: #333;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .bookcase {
+    perspective: 1000px; /* Provides a 3D space for the bookcase */
+}
+
+.shelf {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     padding: 20px;
@@ -25,16 +25,54 @@ h1 {
     width: 60px;
     height: 150px;
     display: inline-block;
+    margin: 5px;
     color: white;
-    background-color: #666;
+    background-color: var(--book-color);
+    transform: rotateY(0deg); /* Gives a 3D effect to the book */
+    transition: transform 0.3s ease;
     text-align: center;
     padding-top: 130px;
-    box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
     text-decoration: none;
-    transform: rotate(-90deg);
-    transform-origin: left top;
+    transform-style: preserve-3d; /* Allows children to stay in 3D space */
+    cursor: pointer;
 }
 
 .book:hover {
-    box-shadow: 5px 5px 7px rgba(0,0,0,0.5);
+    transform: rotateY(30deg); /* Tilt the book on hover */
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
