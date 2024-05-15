@@ -1,78 +1,121 @@
 body {
     background-color: #1a1a1a; /* Dark background for the room */
+    color: white;
+    font-family: 'Arial', sans-serif;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin-bottom: 20px;
 }
 
 .bookcase {
-    perspective: 1000px; /* Provides a 3D space for the bookcase */
+    width: 80%;
+    max-width: 800px;
+    background: #3e2723;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .shelf {
     display: flex;
+    gap: 20px;
     justify-content: center;
-    gap: 10px;
-    padding: 20px;
-    border-top: 3px solid #ccc;
-    border-bottom: 3px solid #ccc;
+    padding: 10px;
+    background: #5d4037;
+    border-radius: 5px;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .book {
     width: 60px;
-    height: 150px;
-    display: inline-block;
-    margin: 5px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    perspective: 800px;
+    cursor: pointer;
+}
+
+.book .front,
+.book .side,
+.book .back {
+    position: absolute;
+    width: 60px;
+    height: 100px;
+    background-color: var(--book-color, #1a659e);
+    border: 1px solid #000;
+    backface-visibility: hidden;
+    transition: transform 0.3s;
+}
+
+.book .front {
+    transform: rotateY(0deg);
+}
+
+.book .side {
+    width: 20px;
+    transform: rotateY(90deg) translateX(-40px);
+    transform-origin: left;
+}
+
+.book .back {
+    transform: rotateY(180deg);
+}
+
+.book .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
     color: white;
-    background-color: var(--book-color);
-    transform: rotateY(0deg); /* Gives a 3D effect to the book */
-    transition: transform 0.3s ease;
     text-align: center;
-    padding-top: 130px;
-    text-decoration: none;
-    transform-style: preserve-3d; /* Allows children to stay in 3D space */
-    cursor: pointer;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
 }
 
-.book:hover {
-    transform: rotateY(30deg); /* Tilt the book on hover */
+.book:hover .front {
+    transform: rotateY(-20deg);
 }
 
-/* Modal styling */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgb(0,0,0); 
-    background-color: rgba(0,0,0,0.4); 
+.book:hover .side {
+    transform: rotateY(70deg) translateX(-40px);
 }
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; 
+.book:hover .back {
+    transform: rotateY(160deg);
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 1000;
+    pointer-events: none;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+.tooltip h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.tooltip p {
+    margin: 5px 0;
+    font-size: 14px;
 }

@@ -3,46 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cassandra's Interactive Bookcase</title>
+    <title>Interactive 3D Bookcase</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Cassandra's Project Bookcase</h1>
+    <h1>Cassandra's Interactive Bookcase</h1>
     <div class="bookcase">
         <div class="shelf">
-            <a href="#project1" class="book" style="background-color: #6f1d1b;">Project 1</a>
-            <a href="#project2" class="book" style="background-color: #1a659e;">Project 2</a>
-            <a href="#project3" class="book" style="background-color: #727a17;">Project 3</a>
+            <div class="book" data-title="Project 1" data-summary="Summary of Project 1" data-skills="Skills: HTML, CSS" data-language="Language: JavaScript">
+                <div class="front"></div>
+                <div class="side"></div>
+                <div class="back"></div>
+                <div class="title">Project 1</div>
+            </div>
+            <div class="book" data-title="Project 2" data-summary="Summary of Project 2" data-skills="Skills: Python, R" data-language="Language: Python">
+                <div class="front"></div>
+                <div class="side"></div>
+                <div class="back"></div>
+                <div class="title">Project 2</div>
+            </div>
+            <div class="book" data-title="Project 3" data-summary="Summary of Project 3" data-skills="Skills: SQL, Tableau" data-language="Language: SQL">
+                <div class="front"></div>
+                <div class="side"></div>
+                <div class="back"></div>
+                <div class="title">Project 3</div>
+            </div>
             <!-- Add more books as needed -->
         </div>
-        <!-- Add more shelves as needed -->
     </div>
 
-    <!-- Project details modals -->
-    <div id="project1" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Project 1</h2>
-            <p>Details about Project 1...</p>
-        </div>
-    </div>
-
-    <div id="project2" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Project 2</h2>
-            <p>Details about Project 2...</p>
-        </div>
-    </div>
-
-    <div id="project3" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Project 3</h2>
-            <p>Details about Project 3...</p>
-        </div>
-    </div>
+    <div class="tooltip" id="tooltip"></div>
 
     <script src="script.js"></script>
 </body>
-</html
+</html>

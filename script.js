@@ -1,41 +1,34 @@
 // script.js
 
-// Get all modal elements
-var modals = document.querySelectorAll('.modal');
+document.addEventListener('DOMContentLoaded', function() {
+    const books = document.querySelectorAll('.book');
+    const tooltip = document.getElementById('tooltip');
 
-// Get all book elements
-var books = document.querySelectorAll('.book');
+    books.forEach(book => {
+        book.addEventListener('mouseover', function(event) {
+            const title = this.getAttribute('data-title');
+            const summary = this.getAttribute('data-summary');
+            const skills = this.getAttribute('data-skills');
+            const language = this.getAttribute('data-language');
 
-// Get all close elements
-var closes = document.querySelectorAll('.close');
+            tooltip.innerHTML = `
+                <h3>${title}</h3>
+                <p>${summary}</p>
+                <p>${skills}</p>
+                <p>${language}</p>
+            `;
+            tooltip.style.display = 'block';
+            tooltip.style.left = `${event.pageX + 10}px`;
+            tooltip.style.top = `${event.pageY + 10}px`;
+        });
 
-// Function to open the modal
-function openModal(modalId) {
-    document.querySelector(modalId).style.display = 'block';
-}
+        book.addEventListener('mousemove', function(event) {
+            tooltip.style.left = `${event.pageX + 10}px`;
+            tooltip.style.top = `${event.pageY + 10}px`;
+        });
 
-// Function to close the modal
-function closeModal() {
-    modals.forEach(modal => modal.style.display = 'none');
-}
-
-// Add event listeners to books to open corresponding modal
-books.forEach(book => {
-    book.addEventListener('click', function(event) {
-        event.preventDefault();
-        var modalId = this.getAttribute('href');
-        openModal(modalId);
+        book.addEventListener('mouseout', function() {
+            tooltip.style.display = 'none';
+        });
     });
-});
-
-// Add event listeners to close buttons to close the modal
-closes.forEach(close => {
-    close.addEventListener('click', closeModal);
-});
-
-// Add event listener to window to close modal when clicking outside of it
-window.addEventListener('click', function(event) {
-    if (event.target.classList.contains('modal')) {
-        closeModal();
-    }
 });
