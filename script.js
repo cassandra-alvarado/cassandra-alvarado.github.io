@@ -1,7 +1,7 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', function() {
-    const books = document.querySelectorAll('.book');
+    const books = document.querySelectorAll('.book-container');
     const tooltip = document.getElementById('tooltip');
 
     books.forEach(book => {
