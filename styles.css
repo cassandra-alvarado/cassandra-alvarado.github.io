@@ -74,11 +74,12 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 150px; /* Increased width by 50% */
-    height: 225px; /* Increased height by 50% */
+    width: 150px; /* Fixed width */
+    height: 225px; /* Fixed height */
     transform: translateZ(22.5px); /* Increased translateZ to match new height */
     border-radius: 0 2px 2px 0;
     box-shadow: none; /* Removed glow effect */
+    object-fit: cover; /* Ensures the image covers the box without distortion */
 }
 
 .book::before {
