@@ -78,14 +78,14 @@ body {
     width: 120px;
     height: 160px;
     transform: translateZ(15px);
-    background-color: #01060f; /* Dark blue */
+    background-color: var(--book-color, #FF8C00);
     border-radius: 5px;
     box-shadow: 5px 5px 20px #666;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    color: white; /* White text */
+    color: white;
     text-align: center;
     padding: 10px;
 }
@@ -131,7 +131,7 @@ body {
     width: 120px;
     height: 160px;
     transform: translateZ(-15px);
-    background-color: #01060f;
+    background-color: var(--book-color, #01060f);
     border-radius: 5px;
     box-shadow: -10px 0 50px 10px #666;
 }
