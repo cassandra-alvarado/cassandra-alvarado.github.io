@@ -18,22 +18,22 @@ body {
 }
 
 .bookcase {
-    width: 80%;
-    max-width: 800px;
+    width: 120%; /* Increased width to accommodate larger books */
+    max-width: 1200px; /* Increased max-width */
     background: #3e2723;
-    padding: 20px;
+    padding: 30px; /* Increased padding */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px; /* Increased gap between shelves */
 }
 
 .shelf {
     display: flex;
-    gap: 20px;
+    gap: 30px; /* Increased space between books */
     justify-content: center;
-    padding: 10px;
+    padding: 15px; /* Increased padding */
     background: #5d4037;
     border-radius: 5px;
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
@@ -43,61 +43,52 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    perspective: 1100px;
+    perspective: 600px; /* Adjusted perspective */
 }
 
 @keyframes initAnimation {
     0% {
-        transform: rotateY(-45deg);
+        transform: rotateY(0deg);
     }
     100% {
-        transform: rotateY(0deg);
+        transform: rotateY(-30deg);
     }
 }
 
 .book {
-    width: 120px;
-    height: 160px;
+    width: 150px; /* Increased width by 50% */
+    height: 225px; /* Increased height by 50% */
     position: relative;
     transform-style: preserve-3d;
-    transform: rotateY(0deg);
-    transition: transform 1.5s ease, box-shadow 1.5s ease;
+    transform: rotateY(-30deg);
+    transition: transform 1s ease;
     animation: 1s ease 0s 1 initAnimation;
 }
 
 .book-container:hover .book,
 .book-container:focus .book {
-    transform: rotateY(-20deg) translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: rotateY(0deg);
 }
 
-.book > .front {
+.book img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 120px;
-    height: 160px;
-    transform: translateZ(15px);
-    background-color: var(--book-color, #FF8C00);
-    border-radius: 5px;
-    box-shadow: 5px 5px 20px #666;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    color: white;
-    text-align: center;
-    padding: 10px;
+    width: 150px; /* Increased width by 50% */
+    height: 225px; /* Increased height by 50% */
+    transform: translateZ(22.5px); /* Increased translateZ to match new height */
+    border-radius: 0 2px 2px 0;
+    box-shadow: none; /* Removed glow effect */
 }
 
 .book::before {
     position: absolute;
     content: ' ';
     left: 0;
-    top: 4px;
-    width: 30px;
-    height: 152px;
-    transform: translateX(90px) rotateY(90deg);
+    top: 1.5px; /* Adjusted to match new height */
+    width: 42px; /* Increased width by 50% */
+    height: 222px; /* Increased height by 50% */
+    transform: translateX(126px) rotateY(90deg); /* Increased translateX to match new width */
     background: linear-gradient(90deg, 
         #fff 0%,
         #f9f9f9 5%,
@@ -128,12 +119,12 @@ body {
     top: 0;
     left: 0;
     content: ' ';
-    width: 120px;
-    height: 160px;
-    transform: translateZ(-15px);
-    background-color: var(--book-color, #01060f);
-    border-radius: 5px;
-    box-shadow: -10px 0 50px 10px #666;
+    width: 150px; /* Increased width by 50% */
+    height: 225px; /* Increased height by 50% */
+    transform: translateZ(-22.5px); /* Increased translateZ to match new height */
+    background-color: #01060f; /* Match front color */
+    border-radius: 0 2px 2px 0;
+    box-shadow: none; /* Removed glow effect */
 }
 
 /* Tooltip styling */
