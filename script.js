@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', function() {
     const books = document.querySelectorAll('.book-container');
     const tooltip = document.getElementById('tooltip');
@@ -35,22 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function openModal(pdfPath) {
     const modal = document.getElementById('pdfModal');
-    const iframe = document.getElementById('pdfFrame');
-    iframe.s// script.js
-
-    document.addEventListener('DOMContentLoaded', function() {
-        const books = document.querySelectorAll('.book-container');
-        const tooltip = document.getElementById('tooltip');
-    
-        books.forEach(book => {
-            book.addEventListener
-    rc = pdfPath;
+    const embed = document.getElementById('pdfFrame');
+    embed.src = pdfPath;
     modal.style.display = 'block';
 }
 
 function closeModal() {
     const modal = document.getElementById('pdfModal');
-    const iframe = document.getElementById('pdfFrame');
-    iframe.src = '';
+    const embed = document.getElementById('pdfFrame');
+    embed.src = '';
     modal.style.display = 'none';
 }

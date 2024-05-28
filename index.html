@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1 class="title">Cassandra's Interactive Bookcase</h1>
+    <h1 class="title">Cassandra's Project Bookcase</h1>
     <div class="bookcase">
         <div class="shelf">
-            <a class="book-container" href="#" onclick="openModal('resume/resume.pdf'); return false;" data-title="Project 1" data-summary="Summary of Project 1" data-skills="Skills: HTML, CSS" data-language="Language: JavaScript">
+            <a class="book-container" href="#" onclick="openModal('resume/resume.pdf'); return false;" data-title="Resume" data-summary="" data-skills="" data-language="">
                 <div class="book">
-                    <img alt="Project 1" src="resume/resume_cover.png"/>
+                    <img alt="Resume" src="resume/resume_cover.png"/>
                 </div>
             </a>
             <a class="book-container" href="#" target="_blank" rel="noopener noreferrer" data-title="Project 2" data-summary="Summary of Project 2" data-skills="Skills: Python, R" data-language="Language: Python">
@@ -32,7 +32,7 @@
     <div id="pdfModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <iframe id="pdfFrame" src="" style="width:100%; height:100%;" frameborder="0"></iframe>
+            <embed id="pdfFrame" src="" type="application/pdf" width="100%" height="100%">
         </div>
     </div>
 
